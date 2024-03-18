@@ -6,4 +6,5 @@ import com.matt.carrentalplatform.dto.UserDTO;
 public interface AuthService {
 
   UserDTO createCustumer(SignupRequest signupRequest);
+  boolean usedEmail(String email);
 }
