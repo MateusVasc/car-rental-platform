@@ -34,6 +34,9 @@ public class User {
   @Column(nullable = false)
   private UserRole role;
 
+  public User() {
+  }
+
   public User(String name, String email, String password, UserRole role) {
     this.name = name;
     this.email = email;
