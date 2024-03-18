@@ -7,4 +7,7 @@ public interface AuthService {
 
   UserDTO createCustumer(SignupRequest signupRequest);
   boolean usedEmail(String email);
+  boolean verifiedName(String name);
+  boolean verifiedEmail(String email);
+  boolean verifiedPassword(String password);
 }
