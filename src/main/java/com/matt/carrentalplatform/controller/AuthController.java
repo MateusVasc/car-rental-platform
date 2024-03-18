@@ -22,6 +22,12 @@ public class AuthController {
 
   @PostMapping("/signup")
   public ResponseEntity<Object> signupCustumer(@RequestBody SignupRequest signupRequest) {
+    if (!this.authService.verifiedFields(signupRequest.getName(), signupRequest.getEmail(),
+        signupRequest.getPassword())) {
+      return new ResponseEntity<>("The field information provided is not valid",
+          HttpStatus.NOT_ACCEPTABLE);
+    }
+
     if (this.authService.usedEmail(signupRequest.getEmail())) {
       return new ResponseEntity<>("The provided email is already being used.",
           HttpStatus.NOT_ACCEPTABLE);
