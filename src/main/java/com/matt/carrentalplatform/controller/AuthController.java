@@ -21,7 +21,12 @@ public class AuthController {
   }
 
   @PostMapping("/signup")
-  public ResponseEntity<?> signupCustumer(@RequestBody SignupRequest signupRequest) {
+  public ResponseEntity<Object> signupCustumer(@RequestBody SignupRequest signupRequest) {
+    if (this.authService.usedEmail(signupRequest.getEmail())) {
+      return new ResponseEntity<>("The provided email is already being used.",
+          HttpStatus.NOT_ACCEPTABLE);
+    }
+
     UserDTO createdCustumer = authService.createCustumer(signupRequest);
 
     if (createdCustumer == null) {
