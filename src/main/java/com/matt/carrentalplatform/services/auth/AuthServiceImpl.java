@@ -5,7 +5,6 @@ import com.matt.carrentalplatform.dto.UserDTO;
 import com.matt.carrentalplatform.entity.User;
 import com.matt.carrentalplatform.enums.UserRole;
 import com.matt.carrentalplatform.repository.UserRepository;
-import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
